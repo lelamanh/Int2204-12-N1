@@ -44,8 +44,6 @@ public class Student {
         return x;
     }
 
-    public static boolean sameGroup(Student s1, Student s2) {
-        return s1.group.equals(s2.group);
-    }
+
 
 }

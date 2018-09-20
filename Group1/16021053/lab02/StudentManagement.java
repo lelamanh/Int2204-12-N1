@@ -81,10 +81,14 @@ public class StudentManagement {
             }
         }
     }
-
+    /**
+     * 
+     * @param id
+     * @return true if find student equals id else false;
+     */
     public boolean removeStudent(String id) {
         for(int i = 0; i < numStudents; ++i) {
-            if(students[i].getId() == id) {
+            if(students[i].getId().equals(id)) {
                 for(int j = i; j < numStudents; ++j) {
                     students[j] = students[j + 1];
                 }
@@ -93,5 +97,9 @@ public class StudentManagement {
             }
         }
         return false;
+    }
+
+    public boolean sameGroup(Student s1, Student s2) {
+        return s1.getGroup().equals(s2.getGroup());
     }
 }
