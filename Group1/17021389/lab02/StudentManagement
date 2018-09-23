@@ -1,0 +1,132 @@
+package INT2204_12_N1;
+
+import java.util.Arrays;
+
+public class StudentManagement {
+
+	 public static int  MAX_STUDENT = 5;
+	// MAX = 100
+	// Value demo  = 6
+	
+	Student [] students = new Student[MAX_STUDENT];
+
+	public static void main(String [] args){
+        StudentManagement temp = new StudentManagement();
+
+		temp.students[0] = new Student();
+		String s = "Do thien Hop";
+        temp.students[0].setName(s);
+        temp.students[0].setId("17021389");
+        temp.students[0].setEmail("thjenhop99@gmail.com");
+        temp.students[0].setGroup("INT2204");
+
+
+        temp.students[3] = new Student();
+        temp.students[3].setGroup("INT2205");
+
+        temp.students[4] = new Student();
+        temp.students[4].setGroup("INT2205");
+
+
+		temp.removeStudent("000");
+
+
+
+		System.out.println("Success");
+	}
+
+	/** 
+	 Method: sameGroup() 
+	 ToDo: return ans of compare Group between two Object Student
+	 @param Object Student student1
+	 @param Object Student student2
+	 */
+
+	 public boolean sameGroup(Student student1, Student student2) {
+
+	 	return student1.getGroup().equals(student2.getGroup());
+	 }
+
+	/**
+	  Method studentByGroup()
+	  ToDo: print student same group
+	  @param None
+	*/
+
+	 public void studentByGroup(){
+
+	 	boolean [] conditional = new boolean[MAX_STUDENT];
+
+	 	StudentManagement temp = new StudentManagement();
+	 	temp.conditionalIsTrue(conditional);
+
+	 	 for(int i = 0; i < MAX_STUDENT; i++)
+	 	 {
+	 	 	if(conditional[i]){
+	 	 		// 
+		 	 	System.out.println("Group");
+		 	 	System.out.println(students[i].getName());
+
+		 	 	conditional[i] = false;
+
+		 		for(int j = i + 1; j < MAX_STUDENT; j++ )
+		 		{
+		 			if(temp.sameGroup(students[i], students[j]))
+		 			{
+		 				System.out.println(students[j].getName());
+		 				conditional[j] = false;
+		 			}
+		 		}
+		 		System.out.println("End\n");
+	 		}
+	 	}
+
+
+	 }
+
+	 /**
+	  Method conditionallIsTrue()
+	  ToDo: set all element of array object is true
+	  @param boolean [] 
+	  */
+	 public void conditionalIsTrue(boolean [] conditional){
+	 	for(int i = 0; i < MAX_STUDENT; i++){
+	 		conditional[i] = true;
+	 	}
+	 }
+
+	 /**
+		MEthod: removeStudent()
+		ToDo: remove Object has feature is String condition 
+		@param String id
+
+	 */
+
+
+	 public void removeStudent(String id){
+
+	 	for(int i = 0; i < MAX_STUDENT; i++){
+	 		if(students[i].getId() == id){
+	 			for(int j = i + 1 ; j  < MAX_STUDENT; j++) {
+                    students[j - 1] = students[j];
+                }
+	 			MAX_STUDENT--;
+
+//                students = Arrays.copyOfRange(students, 0, MAX_STUDENT);
+	 		}
+
+	 	}
+         for(int i = 0; i < MAX_STUDENT; i++){
+             System.out.println(i);
+             students[i].getInfo();
+         }
+
+	 }
+
+
+
+
+
+
+
+}
