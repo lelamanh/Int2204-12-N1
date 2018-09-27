@@ -11,6 +11,8 @@ public class SanPham {
     String loSo;
     String ngaySanXuat;
 
+    
+    /* setter getter for each feature of Object SanPham*/
     public String getType() {
         return type;
     }
