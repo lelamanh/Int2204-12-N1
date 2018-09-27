@@ -1,27 +1,25 @@
-package OOP;
-
 public class Main {
 
-	public static void main(String [] args){
+    public static void main(String [] args){
 
-		int n = 10;
-		System.out.println(findFibonaxi(6));
-		System.out.println("Success");
-	}
+        Main option = new Main();
+        System.out.println(option.findGCD(-15, 5)); // print 5
+        System.out.println(option.findFibonaxi(10)); // print 89
+        System.out.println("Success");
+    }
 
-	public static int findFibonaxi(int n)
-	{
-		if(n == 0 || n == 1){
-			return 1;
-		}
-		return findFibonaxi(n - 1) + findFibonaxi(n - 2);
-	}
+    public int findFibonaxi(int n)
+    {
+        if(n == 0 || n == 1){
+            return 1;
+        }
+        return findFibonaxi(n - 1) + findFibonaxi(n - 2);
+    }
 
 
 
-    public static int findGCD(int a, int b)
+    public int findGCD(int a, int b)
     {
         return b == 0 ? a : findGCD(b, a % b);
     }
 }
-
