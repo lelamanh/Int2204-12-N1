@@ -1,26 +1,19 @@
-package Lab03_03.DoVat;
+package Lab03_03;
 
 public class SanPham {
     String ten;
     String id;
     KichThuoc size;
     double khoiLuong;
-    String mainUse;
-    int chan = 0;
-    public String getMainUse() {
-        return mainUse;
-    }
-
-    public void setMainUse(String mainUse) {
-        this.mainUse = mainUse;
-    }
-
-
+    String use;
     Other other;
     String nhaSanXuat;
     String loSo;
     String ngaySanXuat;
 
+    
+    /* setter getter for each feature of Object SanPham*/
+    
     public String getType() {
         return type;
     }
@@ -80,11 +73,11 @@ public class SanPham {
     }
 
     public String getUse() {
-        return mainUse;
+        return use;
     }
 
-    public void setUse(String mainUse) {
-        this.mainUse = mainUse;
+    public void setUse(String use) {
+        this.use = use;
     }
 
     public Other getOther() {
@@ -110,19 +103,6 @@ public class SanPham {
         return this.size;
     }
 
-    public int getChan() {
-        return chan;
-    }
 
-    public void setChan(int chan) {
-        this.chan = chan;
-    }
-
-    //    public void setOther(Other other){
-//        this.other = other;
-//    }
-//    public Other getOther(){
-//        return this.other;
-//    }
 
 }
