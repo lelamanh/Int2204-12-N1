@@ -1,0 +1,120 @@
+package INT2204_12_N1;
+
+public class Student {
+
+	private String name;
+	private String id;
+	private String group;
+	private String email;
+
+	/*
+	 ToDo: khai bao thuoc tinh cua Class 
+	 Access modifer : private quan ly truy cap
+	*/
+
+	 /* method setter, getter for feature: name */
+
+	 public void setName(String name){
+
+	 	this.name = name;
+	 }
+	 public String getName(){
+	 	return this.name;
+	 }
+
+	 /* method setter, getter for feature: id*/
+
+	 public void setId(String id){
+	 	this.id = id;
+	 }
+	 public String getId(){
+	 	return this.id;
+	 }
+
+	 /* method setter getter for feature: group*/
+
+	 public void setGroup(String group){
+	 	this.group = group;
+
+	 }
+	 public String getGroup(){
+	 	return this.group;
+	 }
+
+	 /* method setter, getter for feature: email*/
+
+	 public void setEmail(String email){
+	 	this.email = email;
+	 }
+	 public String getEmail(){
+	 	return this.email;
+	 }
+
+	 /* method getInfo 
+		ToDo: print information of Student: name, id, group, email
+		
+	 */
+
+	public void getInfo()
+	{
+		System.out.println("Student");
+		System.out.println("Name:" + " " + getName());
+		System.out.println("Id:" + " " + getId());
+		System.out.println("Group:" + " " + getGroup());
+		System.out.println("Email:" + " " + getEmail());
+
+	}
+
+	/**
+	  My constructor default: 00
+	  
+	  Default 
+	  name = "Student"
+	  id = "000"
+	  email = "uet@vnr.edu.vn"
+	  group = "INT2204"
+
+	 */
+
+	public Student(){
+		setName("Student");
+		setId("000");
+		setEmail("uet@vnu.edu.vn");
+		setGroup("INT2204");
+	}
+
+	/**
+	 My constructor: 01
+	 @param String name
+	 @param String id
+	 @param String email
+	 Feature group = "INT2204"
+	 */
+
+	public Student(String name, String id, String email)
+	{
+		setName(name);
+		setId(id);
+		setEmail(email);
+		setGroup("INT2204");
+
+	}
+
+	/**
+	  My constructor: 02
+	  @param
+
+	 */
+	public Student(Student temp){
+		this.name = temp.name;
+		this.id = temp.id;
+		this.email = temp.email;
+		this.group = temp.group;
+	}
+	
+ 
+
+
+
+
+}

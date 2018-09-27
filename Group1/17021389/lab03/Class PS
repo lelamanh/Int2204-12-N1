@@ -1,0 +1,205 @@
+package com.company;
+
+public class PS {
+    // PS has feature: tu, mau
+    int tu;
+    int mau;
+
+    /* methods Setter, getter for each feature: tu, mau*/
+    public int getTu() {
+        return tu;
+    }
+
+    public void setTu(int tu) {
+        this.tu = tu;
+    }
+
+    public int getMau() {
+        return mau;
+    }
+
+    public void setMau(int mau) {
+        if(mau != 0){
+            // Conditional: a PS mau != 0
+            this.mau = mau;
+        }
+
+    }
+
+    /* Method rutGon PS
+
+        @param: PS s
+
+        RutGon PS
+
+
+    */
+    public void rutGon(PS s){
+
+        int a = s.getTu();
+        int b = s.getMau();
+
+        // find GCD of two number int
+
+        while(b != 0){
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        // a : ucln
+        setTu(s.getTu() / a);
+        setMau(s.getMau() / a);
+        // Set ans: for First PS
+    }
+
+
+    /* Constructor created default
+      tu = 0;
+      mau = 1;
+     */
+    public PS(){
+        setTu(0);
+        setMau(1);
+    }
+
+    /* Constructor 01
+       @param: int tu 
+       #param: int mau
+
+       creat PS and RutGon PS
+
+     */
+
+    public PS(int tu, int mau){
+        rutGon(tu, mau);
+
+    }
+
+
+    /* Costructor 
+        @param : int tu
+
+        Create a PS  = tu, mau = 1
+    */
+    
+    public PS(int tu){
+        setTu(tu);
+        setMau(1);
+
+    }
+
+
+    /* Method rutGon
+        @param: int a
+        @param: int b
+
+        Rutgon : this_PS;
+
+    */
+    public void rutGon(int a, int b){
+        setTu(a);
+        setMau(b);
+        rutGon(this);
+    }
+
+    @Override
+    /*
+        Method equals 
+        @param : Object obj
+
+        equal this_PS == Object ?
+
+    */
+    public boolean equals(Object obj) {
+        
+        if(obj instanceof PS){
+            // conditional : obj is  type of PS
+
+            int temp = getTu() * ((PS) obj).getMau() - ((PS) obj).getTu() * getMau();
+            return temp == 0;
+        }
+        return false;
+    }
+
+    /* method sumTwoPS
+        @param: PS s
+
+        Return sum of( this_PS between PS_ s)
+    */
+
+    public PS sumTwoPS(PS s){
+        s.rutGon(s);
+        int tu = this.getTu() * s.getMau() + this.getMau() * s.getTu();
+        int mau = this.getMau() * s.getMau();
+
+        PS sum = new PS(tu, mau);
+        rutGon(sum);
+
+        // Rutgon after calculator
+
+        return sum;
+    }
+
+    /* Method hieu
+        
+        @param: PS s
+
+        return hieu(this_PS between PS_s )
+    */
+    public PS hieu(PS s){
+        s.rutGon(s);
+        int tu = this.getTu() * s.getMau() - this.getMau() * s.getTu();
+        int mau = this.getMau() * s.getMau();
+
+        PS hieu = new PS(tu, mau);
+        rutGon(hieu);
+        return hieu;
+
+    }
+
+    /* Method nhan
+      @param: PS s
+
+      return tich(this_PS with PS_s)
+
+    */
+
+    public PS nhan(PS s){
+        s.rutGon(s);
+
+        int tu = this.getTu() * s.getTu();
+        int mau = this.getMau() * s.getMau();
+
+        PS nhan = new PS(tu, mau);
+        rutGon(nhan);
+        return nhan;
+    }
+
+    /* method chia
+
+        @param: PS s
+
+        Return thuong(this_PS with PS_s)
+
+    */
+
+    public PS chia(PS s){
+
+    PS chia = null;
+
+    if(s.getTu() != 0){
+            // conditional: PS_s: tu != 0
+
+            int temp = s.getTu();
+            s.setTu(s.getMau());
+            s.setMau(temp);
+
+            chia = this.nhan(s);
+            // chia PS ( a : b) = (a * (1 / b));
+
+        }
+        return chia;
+        
+
+    }
+}
