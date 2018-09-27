@@ -5,6 +5,8 @@ public class Fractions
 	private int numerator;
 	private int denumerator;
 	
+        public Fractions() {}
+        
 	public Fractions(int numerator, int denumerator) 
 	{
 		this.numerator = numerator;
@@ -36,9 +38,55 @@ public class Fractions
 		this.denumerator = denumerator;
 	}
 	
-	public boolean equals(Object obj)
+        public void add(Fractions other)
+        {
+            Fractions result = new Fractions();
+            result.setNumerator(this.numerator*other.denumerator + this.denumerator*other.numerator);
+            result.setDenumerator(this.denumerator*other.denumerator);
+            simplify(result);
+            System.out.println(result.numerator + "/" + result.denumerator);
+            
+        }
+        
+        public void minus(Fractions other)
+        {
+            Fractions result = new Fractions();
+            result.setNumerator(this.numerator*other.denumerator - this.denumerator*other.numerator);
+            result.setDenumerator(this.denumerator*other.denumerator);
+            simplify(result);
+            System.out.println(result.numerator + "/" + result.denumerator);
+        }
+        
+        public void multiply(Fractions other)
+        {
+            Fractions result = new Fractions();
+            result.setNumerator(this.numerator*other.numerator);
+            result.setDenumerator(this.denumerator*other.denumerator);
+            simplify(result);
+            System.out.println(result.numerator + "/" + result.denumerator);
+        }
+        
+        public void divide(Fractions other)
+        {
+            Fractions result = new Fractions();
+            result.setNumerator(this.numerator*other.denumerator);
+            result.setDenumerator(this.denumerator*other.numerator);
+            simplify(result);
+            System.out.println(result.numerator + "/" + result.denumerator);
+        }    
+        
+        public void simplify(Fractions phanSo)
+        {
+            GCD toiGian = new GCD();
+            int UCLN = toiGian.GCD(phanSo.numerator, phanSo.denumerator);
+            phanSo.numerator /= UCLN;
+            phanSo.denumerator /= UCLN;
+        }
+        
+        public boolean equals(Object obj)
 	{
-		return (double) this.numerator/this.denumerator == (double) ((Fractions)obj).getNumerator()/((Fractions)obj).getDenumerator();
-	}
-	
+            if (obj instanceof Fractions)
+                return (double) this.numerator/this.denumerator == (double) ((Fractions)obj).numerator/((Fractions)obj).denumerator;
+            else return false;
+        }
 }
