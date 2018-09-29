@@ -53,6 +53,8 @@ public class PhanSo {
     {
         int a= ts;
         int b= ms;
+        a= (a<0) ? -a : a;
+        b= (b<0) ? -b : b;
         while (a!=b)
         {
             if (a>b)
