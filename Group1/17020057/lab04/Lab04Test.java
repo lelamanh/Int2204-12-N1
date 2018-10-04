@@ -3,7 +3,6 @@
  * @author longhoang08
  */
 
-
 import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
